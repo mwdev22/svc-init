@@ -1,4 +1,4 @@
-module flat
+module github.com/mwdev22/rest-boilerplate-flat
 
 go 1.25.0
 

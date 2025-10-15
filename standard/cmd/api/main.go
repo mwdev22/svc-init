@@ -2,9 +2,9 @@ package main
 
 import (
 	"log"
-	"standard/internal/api"
 
 	"github.com/mwdev22/core/config"
+	"github.com/mwdev22/rest-boilerplate-standard/internal/api"
 )
 
 // @title           REST Boilerplate API

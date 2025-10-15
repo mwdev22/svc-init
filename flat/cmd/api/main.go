@@ -1,10 +1,10 @@
 package main
 
 import (
-	"flat/api"
 	"log"
 
 	"github.com/mwdev22/core/config"
+	"github.com/mwdev22/rest-boilerplate-flat/api"
 )
 
 // @title           REST Boilerplate API

@@ -1,4 +1,4 @@
-module standard
+module github.com/mwdev22/rest-boilerplate-standard
 
 go 1.25.0
 
