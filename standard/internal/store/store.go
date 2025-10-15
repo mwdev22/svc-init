@@ -3,7 +3,7 @@ package store
 import (
 	"context"
 
-	"github.com/mwdev22/rest-boilerplate-standard/internal/models"
+	"github.com/mwdev22/rest-boilerplate/internal/models"
 )
 
 // store contains interfaces for the repository layer
