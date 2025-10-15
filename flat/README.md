@@ -5,38 +5,20 @@ a production-ready, rest api boilerplate for Golang backend app. Built to accele
 ## Features
 
 - **flat rest api structure** with idiomatic Go.
-- **PostgreSQL** database and **Redis** cache integration. (easy to swap the storage, if you need to use for example mongo)
-- **Database migrations** with `migrate`.
 - **Swagger/OpenAPI** documentation tooling.
 - **Docker \& Docker Compose** for easy, containerized development.
-- **Environment-driven configuration** using `.env`.
 - **Makefile** for common dev and CI tasks.
 - **Ready for cloud-native deployment** on Kubernetes.
 - **Testing** setup for unit/integration testing.
-
-## directory structure
-
-```
-bin/                 # Compiled binaries
-cmd/                 # Main application entrypoints
-docker-compose.yml   # Multi-service dev orchestration
-Dockerfile           # Main build definition
-docs/                # Documentation (OpenAPI, etc.)
-go.mod, go.sum       # Dependency definitions
-internal/            # App logic: services, repos, handlers
-migrations/          # DB migration SQL files
-Makefile             # Developer tasks and CI
-rest_init.sh         # Project bootstrap script
-```
 
 ### 1. Prerequisites
 
 - Go 1.21+ installed
 
 ````markdown
-# golang rest api boilerplate — flat layout
+# flat layout for golang rest api
 
-This `flat` folder contains a minimal, flat variant of the REST API boilerplate. It's designed for small
+`Flat`, minimal variant of the REST API boilerplate. It's designed for small
 projects or to act as a compact starting point when you prefer a shallower directory layout compared to the
 `standard` layout.
 
@@ -56,7 +38,7 @@ docker-compose up --build
 ```
 ````
 
-3. Run the API locally (uses `cmd/api`):
+3. Run the API locally:
 
 ```bash
 make run
@@ -79,6 +61,7 @@ cmd/                # application entrypoints (cmd/api/main.go)
 api/                # http handlers and routing helpers
 service/            # business logic
 models.go           # domain models
+service.go          # service and external dependecies interfaces
 http.go             # http requests and response models
 docker-compose.yml  # dev orchestration
 Dockerfile          # build definition
@@ -87,13 +70,13 @@ Makefile            # developer tasks
 
 Notes
 
-- If your project grows in complexity, consider migrating to the `standard` layout which places packages
+- if your project grows in complexity, consider migrating to the `standard` layout which places packages
   under `internal/` for better encapsulation.
-- The `rest_init.sh` script in the repository can bootstrap a new project from this template.
+- the `rest_init` script in the repository can bootstrap a new project from this template.
 
 License
 
-See the repository `LICENSE` file for licensing details.
+see the repository `LICENSE` file for licensing details.
 
 ```
 | `make migrate-down`   | Revert last applied migration                       |

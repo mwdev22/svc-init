@@ -4,32 +4,22 @@ A production-ready, REST API boilerplate for Golang backend app. Built to accele
 
 ## Features
 
-- **Modern RESTful API structure** with idiomatic Go.
-- **PostgreSQL** database and **Redis** cache integration. (easy to swap the storage, if you need to use for example mongo)
-- **Database migrations** with `migrate`.
+- **flat rest api structure** with idiomatic Go.
 - **Swagger/OpenAPI** documentation tooling.
 - **Docker \& Docker Compose** for easy, containerized development.
-- **Environment-driven configuration** using `.env`.
-- **Simple Makefile** for common dev and CI tasks.
-- **Clean internal architecture** (service, repository, handlers).
+- **Makefile** for common dev and CI tasks.
+- **Ready for cloud-native deployment** on Kubernetes.
+- **Testing** setup for unit/integration testing.
 
-````markdown
-# Golang REST API Boilerplate — Standard layout
+### 1. Prerequisites
 
-This `standard` folder contains the opinionated, production-friendly layout that groups application code
+- Go 1.21+ installed
+
+# standard layout for golang rest api
+
+`Standard` , production-friendly layout that groups application code
 under `internal/` for stronger encapsulation and clearer boundaries. Use this layout when you expect the
 project to grow or when you want to follow common Go project conventions.
-
-What changed recently
-
-- Updated README to match the improved style used by the `flat` layout.
-- Makefile targets and migration commands remain the same; see Makefile for DB driver specifics.
-
-Highlights
-
-- Entrypoint: `cmd/api/main.go`.
-- Project layout follows Go best-practices (internal packages for app logic).
-- Docker and Docker Compose examples included for local development.
 
 Quick start
 
@@ -39,6 +29,7 @@ Quick start
 ```bash
 docker-compose up --build
 ```
+
 ````
 
 3. Run the API locally:
@@ -83,3 +74,4 @@ See the repository `LICENSE` file for licensing details.
 ```
 
 ```
+````
