@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# rest-init - Initialize a new Go REST API project in the current directory
+# svc-init - Initialize a new Go REST API project in the current directory
 
-REPO_URL="https://github.com/mwdev22/rest-boilerplate.git"
-TEMPLATE_DIR="/opt/rest-init"
+REPO_URL="https://github.com/mwdev22/svc-init.git"
+TEMPLATE_DIR="/opt/svc-init"
 
 TEMPLATE_TYPE="${1:-flat}"
 if [[ "$TEMPLATE_TYPE" != "flat" && "$TEMPLATE_TYPE" != "standard" ]]; then
@@ -33,7 +33,7 @@ if [ -e "./go.mod" ]; then
     [[ "$ans" =~ ^[Yy]$ ]] || exit 1
 fi
 
-rsync -av --exclude='.git' --exclude='rest-init' "$TEMPLATE_SUBDIR"/ ./ || {
+rsync -av --exclude='.git' --exclude='svc-init' "$TEMPLATE_SUBDIR"/ ./ || {
     echo "Error: Failed to copy boilerplate template to current directory."
     exit 1
 }
@@ -71,7 +71,7 @@ if [ -n "$MODULE_PATH" ]; then
         printf "module %s\n\nrequire (\n)\n" "$MODULE_PATH" > go.mod
     fi
 
-    old_base="github.com/mwdev22/rest-boilerplate"
+    old_base="github.com/mwdev22/svc-init"
     grep -R --line-number --exclude-dir=.git "$old_base" . >/dev/null 2>&1 && {
         files=$(grep -R --line-number --exclude-dir=.git "$old_base" . | cut -d: -f1 | sort -u)
         for f in $files; do
@@ -79,10 +79,10 @@ if [ -n "$MODULE_PATH" ]; then
         done
     }
 
-    grep -R --line-number --exclude-dir=.git "mwdev22/rest-boilerplate" . >/dev/null 2>&1 && {
-        files=$(grep -R --line-number --exclude-dir=.git "mwdev22/rest-boilerplate" . | cut -d: -f1 | sort -u)
+    grep -R --line-number --exclude-dir=.git "mwdev22/svc-init" . >/dev/null 2>&1 && {
+        files=$(grep -R --line-number --exclude-dir=.git "mwdev22/svc-init" . | cut -d: -f1 | sort -u)
         for f in $files; do
-            sed -i.bak "s|mwdev22/rest-boilerplate|${MODULE_PATH#*/}|g" "$f" && rm -f "$f.bak"
+            sed -i.bak "s|mwdev22/svc-init|${MODULE_PATH#*/}|g" "$f" && rm -f "$f.bak"
         done
     }
 

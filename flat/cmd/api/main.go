@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/mwdev22/core/config"
-	"github.com/mwdev22/rest-boilerplate/api"
+	"github.com/mwdev22/svc-init/api"
 )
 
 // @title           REST Boilerplate API

@@ -1,4 +1,4 @@
-# rest-boilerplate
+# svc-init
 
 a pair of Go rest api boilerplates (flat and standard) to jumpstart backend services.
 
@@ -15,13 +15,13 @@ which one to use?
 
 Getting started (choose layout)
 
-1. install `rest-init` script in your path
+1. install `svc-init` script in your path
 
 2. cd to your desired project directory
 
 3. init git directory in the desired dir (automatically adjust go mod paths based on repo remote url)
 
-4. run rest-init <flat|standard>
+4. run svc-init <flat|standard>
 
 5. be happy because you dont need to write it all again
 

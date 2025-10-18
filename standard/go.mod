@@ -1,4 +1,4 @@
-module github.com/mwdev22/rest-boilerplate
+module github.com/mwdev22/svc-init
 
 go 1.25.0
 
