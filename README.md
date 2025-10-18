@@ -1,6 +1,8 @@
 # svc-init
 
-a pair of Go rest api boilerplates (flat and standard) to jumpstart backend services.
+a pair of Go microservice boilerplates (flat and standard) to jumpstart backend services.
+
+currently only for api's exposed via rest, im going to add grpc support too.
 
 repository contains two alternative layouts you can use as a starting point:
 
