@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/mwdev22/core/config"
-	"github.com/mwdev22/core/database"
+	"github.com/mwdev22/database"
+	config "github.com/mwdev22/gocfg"
 	"github.com/rs/cors"
 	httpSwagger "github.com/swaggo/http-swagger"
 )

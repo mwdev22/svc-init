@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/mwdev22/core/config"
+	config "github.com/mwdev22/gocfg"
 	"github.com/mwdev22/svc-init/internal/api"
 )
 
@@ -13,7 +13,11 @@ import (
 // @termsOfService  http://example.com/terms/
 
 func main() {
-	cfg := config.New()
+	cfg := config.New(
+		config.WithDatabaseConfig(
+			&config.DatabaseConfig{},
+		),
+	)
 
 	app := api.New(cfg)
 

@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/mwdev22/core/middleware"
+	"github.com/mwdev22/rest/middleware"
 )
 
 func (a *Api) Mount(r chi.Router) {
