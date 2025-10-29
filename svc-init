@@ -5,10 +5,50 @@
 REPO_URL="https://github.com/mwdev22/svc-init.git"
 TEMPLATE_DIR="/opt/svc-init"
 
-TEMPLATE_TYPE="${1:-flat}"
-if [[ "$TEMPLATE_TYPE" != "flat" && "$TEMPLATE_TYPE" != "standard" ]]; then
-    echo "Usage: $(basename "$0") [flat|standard]"
+# Accept either a group flag (-grpc or -rest) followed by the template type
+# or just the template type for backward compatibility (assume rest).
+TEMPLATE_GROUP="rest"
+TEMPLATE_TYPE=""
+
+usage() {
+    cat <<-USAGE
+Usage: $(basename "$0") [-grpc|-rest] [flat|standard]
+
+Examples:
+  $(basename "$0") -grpc flat    # use grpc/flat template
+  $(basename "$0") -rest standard # use rest/standard template
+  $(basename "$0") flat          # shorthand, assumes rest/flat
+USAGE
     exit 1
+}
+
+if [ "$#" -eq 0 ]; then
+    TEMPLATE_TYPE="flat"
+else
+    case "$1" in
+        -grpc|--grpc|-g)
+            TEMPLATE_GROUP="grpc"
+            TEMPLATE_TYPE="${2:-flat}"
+            shift 2
+            ;;
+        -rest|--rest|-r)
+            TEMPLATE_GROUP="rest"
+            TEMPLATE_TYPE="${2:-flat}"
+            shift 2
+            ;;
+        -h|--help)
+            usage
+            ;;
+        *)
+            # backward compatible: first arg is template type
+            TEMPLATE_TYPE="$1"
+            shift 1
+            ;;
+    esac
+fi
+
+if [[ "$TEMPLATE_TYPE" != "flat" && "$TEMPLATE_TYPE" != "standard" ]]; then
+    usage
 fi
 
 if [ ! -d "$TEMPLATE_DIR" ]; then
@@ -22,9 +62,9 @@ if [ ! -d "$TEMPLATE_DIR/.git" ]; then
     exit 1
 fi
 
-TEMPLATE_SUBDIR="$TEMPLATE_DIR/$TEMPLATE_TYPE"
+TEMPLATE_SUBDIR="$TEMPLATE_DIR/$TEMPLATE_GROUP/$TEMPLATE_TYPE"
 if [ ! -d "$TEMPLATE_SUBDIR" ]; then
-    echo "Error: Template type '$TEMPLATE_TYPE' not found in $TEMPLATE_DIR"
+    echo "Error: Template '$TEMPLATE_GROUP/$TEMPLATE_TYPE' not found in $TEMPLATE_DIR"
     exit 1
 fi
 
