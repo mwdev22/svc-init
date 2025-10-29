@@ -1,16 +1,15 @@
 package main
 
 import (
+	"context"
 	"log"
 
 	config "github.com/mwdev22/gocfg"
+	"github.com/mwdev22/grpclib/grpcserver"
+	opt "github.com/mwdev22/grpclib/opts"
 	"github.com/mwdev22/svc-init/internal/api"
+	"google.golang.org/grpc/credentials/insecure"
 )
-
-// @title           REST Boilerplate API
-// @version         1.0
-// @description     API documentation for your Go project.
-// @termsOfService  http://example.com/terms/
 
 func main() {
 	cfg := config.New(
@@ -19,9 +18,16 @@ func main() {
 		),
 	)
 
-	app := api.New(cfg)
+	server := grpcserver.NewServer(
+		cfg.Addr,
+		opt.WithCreds(insecure.NewCredentials()),
+	)
 
-	if err := app.Run(); err != nil {
+	app := api.New(cfg, server)
+
+	ctx := context.Background()
+
+	if err := app.Start(ctx); err != nil {
 		log.Fatalf("error while running app: %v", err)
 	}
 }

@@ -84,3 +84,11 @@ migrate-drop:
 
 swag:
 	@swag init --generalInfo ./cmd/main.go
+
+proto:
+	@mkdir -p gen
+	@protoc -I=$(PROTO_DIR) \
+		--go_out=paths=source_relative:gen \
+		--go-grpc_out=paths=source_relative:gen \
+		$(PROTO_DIR)/*.proto
+	@echo "--- PB GENERATED ---"
