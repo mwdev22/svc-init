@@ -14,8 +14,6 @@ github.com/mwdev22/database v0.0.0-20251028182934-9318b4b03b42 h1:0Kfde3gb3FMCot
 github.com/mwdev22/database v0.0.0-20251028182934-9318b4b03b42/go.mod h1:XY+LV555FOjhy0e5/ge8Y1heKTeUVyK/+Z+PJO5ol3g=
 github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5 h1:YeHxut0Wp2m+ruwCjlEBnXNwb/CmqAIeebpq4RxogXs=
 github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5/go.mod h1:61KkjEY6a9YcVXyYn2+VsDfLctk0A2IfJyVvcmQHHpg=
-github.com/mwdev22/grpclib v0.0.0-20251028183643-9e81bdf21b31 h1:fnGeVNGmUyeUMXzwDBVXfIGnCU+QBS0hcx2ZpKafFho=
-github.com/mwdev22/grpclib v0.0.0-20251028183643-9e81bdf21b31/go.mod h1:DRPtatU0jWQDv5JOb7vpWjWSN1r+4T8z2nAAS4qtKh4=
 github.com/mwdev22/grpclib v0.0.0-20251029194603-919277c1aac2 h1:MBQvnLJWhlVwAYsWke0M9vKQH84RiMBNccAyvn1YeEU=
 github.com/mwdev22/grpclib v0.0.0-20251029194603-919277c1aac2/go.mod h1:DRPtatU0jWQDv5JOb7vpWjWSN1r+4T8z2nAAS4qtKh4=
 go.opentelemetry.io/auto/sdk v1.1.0 h1:cH53jehLUN6UFLY71z+NDOiNJqDdPRaXzTel0sJySYA=

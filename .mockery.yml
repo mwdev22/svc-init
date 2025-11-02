@@ -1,0 +1,14 @@
+all: true
+recursive: true
+template: testify
+formatter: goimports
+force-file-write: true
+
+packages:
+  "./":
+    config:
+      recursive: true
+      pkgname: "mocks"
+      dir: "mocks"
+      filename: "{{.InterfaceName}}.go"
+      structname: "{{.Mock}}{{.InterfaceName}}"

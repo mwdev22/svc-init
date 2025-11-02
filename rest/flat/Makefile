@@ -8,6 +8,8 @@ PKG := ./...
 MAIN := ./cmd/api/
 MIGRATIONS_DIR = migrations
 
+MOCKS_DIR := ./mocks
+MOCKERY_CONFIG_PATH := ~/.mockery.yml
 
 # Go commands
 BUILD := go build
@@ -84,3 +86,6 @@ migrate-drop:
 
 swag:
 	@swag init --generalInfo ./cmd/main.go
+
+mocks:
+	mockery --config $(MOCKERY_CONFIG_PATH)

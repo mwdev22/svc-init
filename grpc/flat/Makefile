@@ -9,6 +9,9 @@ MAIN := ./cmd/api/
 MIGRATIONS_DIR = migrations
 PROTO_DIR = proto
 
+MOCKS_DIR := ./mocks
+MOCKERY_CONFIG_PATH := ~/.mockery.yml
+
 
 # Go commands
 BUILD := go build
@@ -20,7 +23,7 @@ RUN := go run
 MIGRATE := migrate
 
 # Targets
-.PHONY: all build clean fmt vet test run migrate-create migrate-up migrate-down migrate-drop proto
+.PHONY: all build clean fmt vet test run migrate-create migrate-up migrate-down migrate-drop proto swag mocks
 
 all: fmt vet test build
 
@@ -93,3 +96,6 @@ proto:
 		--go-grpc_out=paths=source_relative:gen \
 		$(PROTO_DIR)/*.proto
 	@echo "--- PB GENERATED ---"
+
+mocks:
+	mockery --config $(MOCKERY_CONFIG_PATH)
