@@ -8,6 +8,8 @@ PKG := ./...
 MAIN := ./cmd/api/
 MIGRATIONS_DIR = migrations
 
+MOCKS_DIR := ./mocks
+MOCKERY_CONFIG_PATH := ~/.mockery.yml
 
 # Go commands
 BUILD := go build
@@ -92,3 +94,6 @@ proto:
 		--go-grpc_out=paths=source_relative:gen \
 		$(PROTO_DIR)/*.proto
 	@echo "--- PB GENERATED ---"
+
+mocks:
+	mockery --config $(MOCKERY_CONFIG_PATH)
