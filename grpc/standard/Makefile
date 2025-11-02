@@ -7,6 +7,7 @@ PROJECT_NAME := PROJECT_NAME
 PKG := ./...
 MAIN := ./cmd/api/
 MIGRATIONS_DIR = migrations
+PROTO_DIR = proto
 
 MOCKS_DIR := ./mocks
 MOCKERY_CONFIG_PATH := ~/.mockery.yml
