@@ -42,14 +42,10 @@ github.com/mailru/easyjson v0.0.0-20190614124828-94de47d64c63/go.mod h1:C1wdFJiN
 github.com/mailru/easyjson v0.0.0-20190626092158-b2ccc519800e/go.mod h1:C1wdFJiN94OJF2b5HbByQZoLdCWB1Yqtg26g4irojpc=
 github.com/mailru/easyjson v0.7.6 h1:8yTIVnZgCoiM1TgqoeTl+LfU5Jg6/xL3QhGQnimLYnA=
 github.com/mailru/easyjson v0.7.6/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
-github.com/mwdev22/core v0.0.0-20251018123924-88b3f199342a h1:mt5Bp8rzwpFaLct4MWy6Zc7axWzwLTMYG8FtYJpkYXY=
-github.com/mwdev22/core v0.0.0-20251018123924-88b3f199342a/go.mod h1:+usRYY9gms5aO+hSgWCHEOBD+gQ9w0xcec+KEvbyn2s=
-github.com/mwdev22/database v0.0.0-20251028182934-9318b4b03b42 h1:0Kfde3gb3FMCotXt2AGPN9OltC1yj4BcHeIyGrgFSic=
-github.com/mwdev22/database v0.0.0-20251028182934-9318b4b03b42/go.mod h1:XY+LV555FOjhy0e5/ge8Y1heKTeUVyK/+Z+PJO5ol3g=
 github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5 h1:YeHxut0Wp2m+ruwCjlEBnXNwb/CmqAIeebpq4RxogXs=
 github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5/go.mod h1:61KkjEY6a9YcVXyYn2+VsDfLctk0A2IfJyVvcmQHHpg=
-github.com/mwdev22/rest v0.0.0-20251028184254-52934d6bc883 h1:1jxtkqWma2Tsd87rqHGulbPOlVG0DIHdXJgctlsR13M=
-github.com/mwdev22/rest v0.0.0-20251028184254-52934d6bc883/go.mod h1:MfzlyWCFPATOUgUIt+6/xfcPdLfqhLyqrY6+smjmw5Q=
+github.com/mwdev22/rest v0.0.0-20251103202254-c3857e96a1a3 h1:EdgI5FBG0r/JfCenKUGqGA47SOfYb5hX0Gu5oIMS3M0=
+github.com/mwdev22/rest v0.0.0-20251103202254-c3857e96a1a3/go.mod h1:f0Dag3jefeECs4aZz7LE2xVop98RcdXhQR8il+GE20c=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/otiai10/copy v1.7.0 h1:hVoPiN+t+7d2nzzwMiDHPSOogsWAStewq3TwU05+clE=
 github.com/otiai10/copy v1.7.0/go.mod h1:rmRl6QPdJj6EiUqXQ/4Nn2lLXoNQjFCQbbNrxgc/t3U=

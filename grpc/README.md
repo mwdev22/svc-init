@@ -1,5 +1,4 @@
-````markdown
-# grpc structure init
+# gRPC Service Templates
 
 this directory contains gRPC service templates in two layouts: `flat` and `standard`.
 They are intended to accelerate building gRPC-based services in Go with protobuf-first development and a small set
@@ -87,4 +86,3 @@ The templates typically depend on:
 - `google.golang.org/protobuf` — protobuf runtime
 - `github.com/mwdev22/grpclib` — internal helper library used by the template to create and configure servers
 - `github.com/mwdev22/gocfg` — configuration helper (used in examples)
-````

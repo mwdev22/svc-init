@@ -4,14 +4,12 @@ import (
 	"context"
 	"log"
 
-	"github.com/mwdev22/database"
 	config "github.com/mwdev22/gocfg"
 	"github.com/mwdev22/grpclib/grpcserver"
 )
 
 type Api struct {
 	cfg    *config.Config
-	cache  database.Cache
 	server *grpcserver.Server
 }
 
@@ -24,12 +22,6 @@ func New(cfg *config.Config, server *grpcserver.Server, opts ...func(*Api)) *Api
 		opt(api)
 	}
 	return api
-}
-
-func WithCache(cache database.Cache) func(*Api) {
-	return func(api *Api) {
-		api.cache = cache
-	}
 }
 
 func (a *Api) Start(ctx context.Context) error {

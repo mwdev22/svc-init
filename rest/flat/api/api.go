@@ -10,15 +10,13 @@ import (
 	"time"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/mwdev22/database"
 	config "github.com/mwdev22/gocfg"
 	"github.com/rs/cors"
 	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 type Api struct {
-	cfg   *config.Config
-	cache database.Cache
+	cfg *config.Config
 }
 
 func New(cfg *config.Config, opts ...func(*Api)) *Api {
@@ -29,12 +27,6 @@ func New(cfg *config.Config, opts ...func(*Api)) *Api {
 		opt(api)
 	}
 	return api
-}
-
-func WithCache(cache database.Cache) func(*Api) {
-	return func(api *Api) {
-		api.cache = cache
-	}
 }
 
 func (a *Api) Run() error {
