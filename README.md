@@ -103,7 +103,7 @@ Common prerequisites across layouts include:
 - `golang-migrate` CLI (for DB migration targets)
 - `swag` (for OpenAPI generation)
 - `protoc` and Go protobuf plugins (for gRPC templates / `make proto`)
-- `mockery` — used to generate mocks for interfaces used in tests. Install mockery from `https://vektra.github.io/mockery/v3.5/installation/`.
+- `mockery` — used to generate mocks for interfaces used in tests. Install mockery from [here](https://vektra.github.io/mockery/v3.5/installation/).
 
 # Notes
 
