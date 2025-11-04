@@ -16,8 +16,8 @@ The repository supports both **REST** and **gRPC** service templates.
 
 # Personal preference
 
-> personally I'm a big fan of flat layouts, and use standard only when the project is expected to grow significantly.  
-> flat uses the **group by dependency** pattern from [Ben Johnson’s article](https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1). Shout-out to the author for that.
+- Personally I'm a big fan of flat layouts, and use standard only when the project is expected to grow significantly.
+- Flat uses the **group by dependency** pattern from [Ben Johnson’s article](https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1). Shout-out to the author for that.
 
 # Getting started (choose layout)
 
@@ -50,7 +50,7 @@ git remote add origin <your-repo-url>
 - `svc-init -grpc flat` — use `grpc/flat`
 - `svc-init -n -grpc standard` — use `grpc/standard` and do NOT update the local template clone
 
-# USAGE
+# Usage
 
 ```bash
   svc-init flat
@@ -91,8 +91,8 @@ following targets are present in most templates and are useful to know:
 mockery --config $(MOCKERY_CONFIG_PATH)
 ```
 
-> this repository includes a project-level `./.mockery.yml` which is a good starting point (you can copy it to
-> `~/.mockery.yml` or set `MOCKERY_CONFIG_PATH` to the local file).
+this repository includes a project-level `./.mockery.yml` which is a good starting point (you can copy it to
+`~/.mockery.yml` or set `MOCKERY_CONFIG_PATH` to the local file).
 
 ## Tooling & prerequisites
 
