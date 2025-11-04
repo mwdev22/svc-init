@@ -5,9 +5,9 @@ The repository supports both REST and gRPC service templates.
 
 # which one to use?
 
-- `flat/` - a compact, shallow layout suitable for small projects or when you prefer fewer directories. When you want a minimal structure and faster bootstrapping.
+- `flat/` - a compact, shallow layout suitable for small/mid projects or when you prefer fewer directories. Use when you want a minimal structure and faster bootstrapping.
 - `standard/` - a conventional layout that groups application code under `internal/` for better encapsulation in
-  larger codebases. When you expect growth, need stricter package boundaries.
+  larger codebases. Use when you expect growth, need stricter package boundaries.
 
 Personally im a big fan of flat layouts, and use standard only when the project is expected to grow significantly.
 
