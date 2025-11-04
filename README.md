@@ -27,7 +27,12 @@ cp svc-init /usr/local/bin/
 cd /path/to/your/project
 ```
 
-3. init git directory in the desired dir (automatically adjust go mod paths based on repo remote url)
+3. init git repo in the desired dir (automatically adjust go mod paths based on repo remote url)
+
+```bash
+git init
+git remote add origin <your-repo-url>
+```
 
 4. run svc-init to copy the chosen template into the current directory. The script supports an
    optional `-n|--noupdate` flag to skip updating the template repository (useful for air-gapped
