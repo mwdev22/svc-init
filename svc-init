@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# svc-init - Initialize a new Go REST API project in the current directory
+# svc-init - initialize a new microservice go project in the current directory
 
 REPO_URL="https://github.com/mwdev22/svc-init.git"
 TEMPLATE_DIR="/opt/svc-init"
 
-# Accept either a group flag (-grpc or -rest) followed by the template type
-# or just the template type for backward compatibility (assume rest).
 TEMPLATE_GROUP="rest"
 TEMPLATE_TYPE=""
 

@@ -86,7 +86,3 @@ The templates typically depend on:
 - `google.golang.org/protobuf` — protobuf runtime
 - `github.com/mwdev22/grpclib` — internal helper library used by the template to create and configure servers
 - `github.com/mwdev22/gocfg` — configuration helper (used in examples)
-
-# Note
-
-Personally im a big fan of flat layouts, and use standard only when the project is expected to grow significantly.
