@@ -10,15 +10,32 @@ TEMPLATE_TYPE=""
 
 usage() {
     cat <<-USAGE
-Usage: $(basename "$0") [-grpc|-rest] [flat|standard]
+Usage: $(basename "$0") [-n|--noupdate] [-grpc|-rest] [flat|standard]
+
+Options:
+  -n, --noupdate    Do not update or pull the template repository (require templates already present in $TEMPLATE_DIR)
 
 Examples:
-  $(basename "$0") -grpc flat    # use grpc/flat template
-  $(basename "$0") -rest standard # use rest/standard template
-  $(basename "$0") flat          # shorthand, assumes rest/flat
+  $(basename "$0") -grpc flat            # use grpc/flat template (updates templates)
+  $(basename "$0") -n -rest standard     # use rest/standard template and do NOT update templates
+  $(basename "$0") flat                  # shorthand, assumes rest/flat
 USAGE
     exit 1
 }
+
+# Allow a --noupdate / -n flag anywhere in the args. If present, remove it from the arg list and set NO_UPDATE=1.
+NO_UPDATE=0
+filtered_args=()
+for a in "$@"; do
+    if [ "$a" = "-n" ] || [ "$a" = "--noupdate" ]; then
+        NO_UPDATE=1
+    else
+        filtered_args+=("$a")
+    fi
+done
+
+# Reassign positional params to the filtered args (without the noupdate flag)
+set -- "${filtered_args[@]}"
 
 if [ "$#" -eq 0 ]; then
     TEMPLATE_TYPE="flat"
@@ -49,30 +66,38 @@ if [[ "$TEMPLATE_TYPE" != "flat" && "$TEMPLATE_TYPE" != "standard" ]]; then
     usage
 fi
 
-if [ ! -d "$TEMPLATE_DIR" ]; then
-    sudo git clone "$REPO_URL" "$TEMPLATE_DIR"
+if [ "$NO_UPDATE" -eq 1 ]; then
+    if [ ! -d "$TEMPLATE_DIR" ]; then
+        echo "error: templates not present in $TEMPLATE_DIR and --noupdate set."
+        echo "run the script once without --noupdate to initialize templates, or install templates into $TEMPLATE_DIR manually."
+        exit 1
+    fi
 else
-    cd "$TEMPLATE_DIR" && sudo git pull --rebase && cd - >/dev/null
-fi
+    if [ ! -d "$TEMPLATE_DIR" ]; then
+        sudo git clone "$REPO_URL" "$TEMPLATE_DIR"
+    else
+        cd "$TEMPLATE_DIR" && sudo git pull --rebase && cd - >/dev/null
+    fi
 
-if [ ! -d "$TEMPLATE_DIR/.git" ]; then
-    echo "Error: $TEMPLATE_DIR is not a valid git repository."
-    exit 1
+    if [ ! -d "$TEMPLATE_DIR/.git" ]; then
+        echo "error: $TEMPLATE_DIR is not a valid git repository."
+        exit 1
+    fi
 fi
 
 TEMPLATE_SUBDIR="$TEMPLATE_DIR/$TEMPLATE_GROUP/$TEMPLATE_TYPE"
 if [ ! -d "$TEMPLATE_SUBDIR" ]; then
-    echo "Error: Template '$TEMPLATE_GROUP/$TEMPLATE_TYPE' not found in $TEMPLATE_DIR"
+    echo "error: template '$TEMPLATE_GROUP/$TEMPLATE_TYPE' not found in $TEMPLATE_DIR"
     exit 1
 fi
 
 if [ -e "./go.mod" ]; then
-    read -p "A go.mod exists here. Continue and overwrite? [y/N] " ans
+    read -p "go.mod exists here. Continue and overwrite? [y/N] " ans
     [[ "$ans" =~ ^[Yy]$ ]] || exit 1
 fi
 
 rsync -av --exclude='.git' --exclude='svc-init' "$TEMPLATE_SUBDIR"/ ./ || {
-    echo "Error: Failed to copy boilerplate template to current directory."
+    echo "error: failed to copy template to current directory."
     exit 1
 }
 
@@ -96,9 +121,9 @@ fi
 MODULE_PATH=""
 if [ -n "$detected_module" ]; then
     MODULE_PATH="$detected_module"
-    echo "Detected git remote. Will use module path: $MODULE_PATH"
+    echo "--- detected git remote. Will use module path: $MODULE_PATH"
 else
-    read -p "Enter Go module path (e.g. github.com/you/your-repo). Leave empty to skip automatic update: " MODULE_PATH
+    read -p "ENTER Go module path (e.g. github.com/you/your-repo). Leave empty to skip automatic update: " MODULE_PATH
 fi
 
 if [ -n "$MODULE_PATH" ]; then
@@ -106,7 +131,7 @@ if [ -n "$MODULE_PATH" ]; then
     if [ -f go.mod ]; then
         sed -i.bak -E "s|^module .*|module $MODULE_PATH|" go.mod && rm -f go.mod.bak
     else
-        printf "module %s\n\nrequire (\n)\n" "$MODULE_PATH" > go.mod
+        printf "--- module %s\n\nrequire (\n)\n" "$MODULE_PATH" > go.mod
     fi
 
     old_base="github.com/mwdev22/svc-init"
@@ -125,11 +150,11 @@ if [ -n "$MODULE_PATH" ]; then
     }
 
     if command -v go >/dev/null 2>&1; then
-        echo "Running 'go mod tidy' (best-effort). This may require network access."
+        echo "running 'go mod tidy' (best-effort). This may require network access."
         (go mod tidy) || echo "go mod tidy failed or skipped; you can run it manually later."
     fi
 else
-    echo "Skipping automatic go.mod/imports update. You can update module name manually in go.mod."
+    echo "--- skipping automatic go.mod/imports update. You can update module name manually in go.mod."
 fi
 
 echo "==>  ($TEMPLATE_TYPE) structure has been initialized in $(pwd)"

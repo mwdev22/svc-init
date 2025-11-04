@@ -31,17 +31,22 @@ cd /path/to/your/project
 
 3. init git directory in the desired dir (automatically adjust go mod paths based on repo remote url)
 
-4. run svc-init <-rest|-grpc> <flat|standard>
+4. run svc-init to copy the chosen template into the current directory. The script supports an
+   optional `-n|--noupdate` flag to skip updating the template repository (useful for air-gapped
+   environments or CI where templates are preinstalled in `/opt/svc-init`). Examples:
+
+- `svc-init flat` — shorthand for `svc-init -rest flat` (default group is `rest`)
+- `svc-init standard` — use `rest/standard`
+- `svc-init -grpc flat` — use `grpc/flat`
+- `svc-init -n -grpc standard` — use `grpc/standard` and do NOT update the local template clone
 
 # USAGE
-
-rest is default, if option is omitted
 
 ```bash
   svc-init flat
   svc-init standard
   svc-init -grpc standard
-  svc-init -grpc flat
+  svc-init -n -grpc flat
 ```
 
 ## Common Makefile targets
