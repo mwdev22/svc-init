@@ -10,6 +10,7 @@ The repository supports both REST and gRPC service templates.
   larger codebases. Use when you expect growth, need stricter package boundaries.
 
 Personally im a big fan of flat layouts, and use standard only when the project is expected to grow significantly.
+Flat uses group by dependency pattern from `https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1`, shot out to the author for that article.
 
 # Getting started (choose layout)
 
