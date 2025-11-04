@@ -64,3 +64,7 @@ Typical dependencies (check `go.mod` inside the template you copied):
 - `github.com/swaggo/swag` for OpenAPI generation
 - `github.com/mwdev22/gocfg` — configuration helper used in examples
 - `github.com/mwdev22/rest` - internal helper library used by the template to create and configure HTTP servers
+
+# Note
+
+Personally im a big fan of flat layouts, and use standard only when the project is expected to grow significantly.
