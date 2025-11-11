@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5
-	github.com/mwdev22/grpclib v0.0.0-20251029194603-919277c1aac2
+	github.com/mwdev22/grpclib v0.0.0-20251111175927-0fd77782d294
 	google.golang.org/grpc v1.76.0
 )
 

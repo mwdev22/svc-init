@@ -6,7 +6,6 @@ import (
 
 	config "github.com/mwdev22/gocfg"
 	"github.com/mwdev22/grpclib/grpcserver"
-	opt "github.com/mwdev22/grpclib/opts"
 	"github.com/mwdev22/svc-init/api"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -18,9 +17,9 @@ func main() {
 		),
 	)
 
-	server := grpcserver.NewServer(
+	server := grpcserver.New(
 		cfg.Addr,
-		opt.WithCreds(insecure.NewCredentials()),
+		grpcserver.WithCreds(insecure.NewCredentials()),
 	)
 
 	app := api.New(cfg, server)
