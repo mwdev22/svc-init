@@ -2,7 +2,6 @@
 include ./.env
 export $(shell sed 's/=.*//' .env)
 
-# Project variables
 PROJECT_NAME := PROJECT_NAME
 PKG := ./...
 MAIN := ./cmd/api/
@@ -13,7 +12,6 @@ MOCKERY_CONFIG_PATH := ~/.mockery.yml
 
 MIGRATE := migrate
 
-# Targets
 .PHONY: all build fmt vet test run migrate-create migrate-up migrate-down migrate-drop swag mocks
 
 all: fmt vet test build

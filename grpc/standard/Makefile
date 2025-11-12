@@ -2,7 +2,6 @@
 include ./.env
 export $(shell sed 's/=.*//' .env)
 
-# Project variables
 PROJECT_NAME := PROJECT_NAME
 PKG := ./...
 MAIN := ./cmd/api/
@@ -17,8 +16,7 @@ VET := go vet
 TEST := go test
 MIGRATE := migrate
 
-# Targets
-.PHONY: all build fmt vet test run migrate-create migrate-up migrate-down migrate-drop
+.PHONY: all build fmt vet test run migrate-create migrate-up migrate-down migrate-drop proto mocks
 
 all: fmt vet test build
 

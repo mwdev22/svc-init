@@ -2,18 +2,7 @@
 include ./.env
 export $(shell sed 's/=.*//' .env)
 
-# Project variables
-PROJECT_NAME := flat
-PKG := ./...
-MAIN := ./cmd/api/
-MIGRATIONS_DIR = migrations
-PROTO_DIR = proto
 
-MOCKS_DIR := ./mocks
-MOCKERY_CONFIG_PATH := ~/.mockery.yml
-
-
-# Project variables
 PROJECT_NAME := PROJECT_NAME
 PKG := ./...
 MAIN := ./cmd/api/
@@ -28,8 +17,7 @@ VET := go vet
 TEST := go test
 MIGRATE := migrate
 
-# Targets
-.PHONY: all build clean fmt vet test run migrate-create migrate-up migrate-down migrate-drop
+.PHONY: all build clean fmt vet test run migrate-create migrate-up migrate-down migrate-drop proto mocks 
 
 all: fmt vet test build
 
@@ -62,9 +50,6 @@ migrate-force:
 
 migrate-drop:
 	$(MIGRATE) -database $(DATABASE_URI) -path $(MIGRATIONS_DIR) drop
-
-swag:
-	@swag init --generalInfo ./cmd/main.go
 
 proto:
 	@mkdir -p gen
