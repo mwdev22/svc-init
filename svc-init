@@ -147,17 +147,18 @@ if [ -n "$MODULE_PATH" ]; then
         done
     }
 
-    root_package=$(basename "$MODULE_PATH")
+    dir_package=$(basename "$(pwd)")
     old_package="package $TEMPLATE_TYPE"
-    new_package="package $root_package"
+    new_package="package $dir_package"
     
-    grep -R --line-number --include="*.go" --exclude-dir=.git "^$old_package$" . >/dev/null 2>&1 && {
-        files=$(grep -Rl --include="*.go" --exclude-dir=.git "^$old_package$" .)
-        for f in $files; do
-            sed -i.bak "s|^$old_package$|$new_package|" "$f" && rm -f "$f.bak"
-        done
-        echo "updated package declarations from '$old_package' to '$new_package'"
-    }
+    for f in *.go; do
+        if [ -f "$f" ]; then
+            if grep -q "^package $TEMPLATE_TYPE" "$f"; then
+                sed -i.bak "s|^package $TEMPLATE_TYPE|$new_package|" "$f" && rm -f "$f.bak"
+                echo "Updated $f: '$old_package' -> '$new_package'"
+            fi
+        fi
+    done
 
     if command -v go >/dev/null 2>&1; then
         echo "running 'go mod tidy' (best-effort). This may require network access."
