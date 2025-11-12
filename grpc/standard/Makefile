@@ -55,8 +55,8 @@ migrate-drop:
 proto:
 	@mkdir -p gen
 	@protoc -I=$(PROTO_DIR) \
-		--go_out=paths=source_relative:gen \
-		--go-grpc_out=paths=source_relative:gen \
+		--go_out=paths=source_relative:internal/gen \
+		--go-grpc_out=paths=source_relative:internal/gen \
 		$(PROTO_DIR)/*.proto
 	@echo "--- PB GENERATED ---"
 
