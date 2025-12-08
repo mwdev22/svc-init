@@ -48,8 +48,10 @@ github.com/mailru/easyjson v0.7.6 h1:8yTIVnZgCoiM1TgqoeTl+LfU5Jg6/xL3QhGQnimLYnA
 github.com/mailru/easyjson v0.7.6/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
 github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5 h1:YeHxut0Wp2m+ruwCjlEBnXNwb/CmqAIeebpq4RxogXs=
 github.com/mwdev22/gocfg v0.0.0-20251028183652-83a3f950cef5/go.mod h1:61KkjEY6a9YcVXyYn2+VsDfLctk0A2IfJyVvcmQHHpg=
-github.com/mwdev22/rest v0.0.0-20251110181513-e5d376ed25d4 h1:PweiQVrymc0YGcyTBs1hZPYTIfhUQ4CbdXSWqLfsqVg=
-github.com/mwdev22/rest v0.0.0-20251110181513-e5d376ed25d4/go.mod h1:JFZirJmWi0mm943fdkTypVDmiv+AnYhH5HfsYcCV2vA=
+github.com/mwdev22/logging v0.0.0-20251208182751-b0364213fca7 h1:XmkB2n2B3A23Hho4ylwikdH6HSj8WxaIaiiubNDR+2E=
+github.com/mwdev22/logging v0.0.0-20251208182751-b0364213fca7/go.mod h1:xm3pUuOoJ2IzLDHlj4X/ZI1RRVmUHVMa5gPlFnueNMc=
+github.com/mwdev22/rest v0.0.0-20251208193959-435073fe2ef8 h1:RS4D9vI7eXkEY49AYUzujYcDuYspC3DLGgSgpq6qVFw=
+github.com/mwdev22/rest v0.0.0-20251208193959-435073fe2ef8/go.mod h1:YBT/5jY0RHImOOmel0D+tpT/3LBGk1qFsoqyIiqpbHs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/otiai10/copy v1.7.0 h1:hVoPiN+t+7d2nzzwMiDHPSOogsWAStewq3TwU05+clE=
 github.com/otiai10/copy v1.7.0/go.mod h1:rmRl6QPdJj6EiUqXQ/4Nn2lLXoNQjFCQbbNrxgc/t3U=
