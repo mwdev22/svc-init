@@ -17,7 +17,7 @@ The repository supports both **REST** and **gRPC** service templates.
 # Personal preference
 
 - Personally I'm a big fan of flat layouts, and use layered only when the project is expected to grow significantly.
-- Flat uses the **group by dependency** pattern from [Ben Johnson’s article](https://medium.com/@benbjohnson/layered-package-layout-7cdbc8391fc1). Shout-out to the author for that.
+- Flat uses the **group by dependency** pattern from [Ben Johnson’s article](https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1). Shout-out to the author for that.
 
 # Getting started (choose layout)
 
