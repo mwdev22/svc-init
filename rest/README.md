@@ -1,12 +1,12 @@
 # Rest API Service Templates
 
-directory contains `Rest API` service templates in two layouts: `flat` (minimal) and `standard` (production-friendly).
+directory contains `Rest API` service templates in two layouts: `flat` (minimal) and `layered` (production-friendly).
 These templates provide a ready-made starting point for HTTP/REST services in Go with sensible defaults for
 configuration, migrations, swagger, and local development.
 
 ## What this layout uses
 
-- idiomatic Go project layout (`flat` vs `standard`) and Go modules
+- idiomatic Go project layout (`flat` vs `layered`) and Go modules
 - HTTP routing and handler using my internal `rest` library and `chi` router
 - Swagger/OpenAPI for API documentation and code generation (using `swaggo/swag`)
 - Docker & Docker Compose for local development
@@ -53,10 +53,10 @@ docker-compose.yml  # development orchestration
 Makefile            # developer tasks including migrations and docs
 ```
 
-`flat` vs `standard`:
+`flat` vs `layered`:
 
 - `flat` keeps a shallower layout (good for small services).
-- `standard` groups code under `internal/` for better encapsulation in larger projects.
+- `layered` groups code under `internal/` for better encapsulation in larger projects.
 
 ## Dependencies used by the templates
 

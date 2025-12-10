@@ -1,6 +1,6 @@
 # gRPC Service Templates
 
-this directory contains gRPC service templates in two layouts: `flat` and `standard`.
+this directory contains gRPC service templates in two layouts: `flat` and `layered`.
 They are intended to accelerate building gRPC-based services in Go with protobuf-first development and a small set
 of pragmatic conventions.
 
@@ -73,10 +73,10 @@ docker-compose.yml  # development orchestration (optional)
 Makefile            # developer tasks, including `proto` target
 ```
 
-`flat` vs `standard`:
+`flat` vs `layered`:
 
 - `flat` keeps a shallower layout (good for small services).
-- `standard` groups code under `internal/` for better encapsulation in larger projects.
+- `layered` groups code under `internal/` for better encapsulation in larger projects.
 
 ## Dependencies used by the templates
 

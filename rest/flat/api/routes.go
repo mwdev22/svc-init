@@ -4,11 +4,12 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/mwdev22/logging"
 	"github.com/mwdev22/rest/middleware"
 )
 
 func (a *Api) Mount(r chi.Router) {
-	r.Use(middleware.Logger, middleware.RealIP)
+	r.Use(middleware.Logger(logging.DefaultLogger()), middleware.RealIP)
 	r.Get("/ping", a.Ping)
 }
 

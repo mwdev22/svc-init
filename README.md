@@ -1,6 +1,6 @@
 # svc-init
 
-A pair of Go microservice templates (**flat** and **standard**) to jumpstart backend microservice projects.
+A pair of Go microservice templates (**flat** and **layered**) to jumpstart backend microservice projects.
 The repository supports both **REST** and **gRPC** service templates.
 
 # which one to use?
@@ -9,15 +9,15 @@ The repository supports both **REST** and **gRPC** service templates.
 
 - a compact, shallow layout suitable for small/mid projects or when you prefer fewer directories. Use when you want a minimal structure and faster bootstrapping.
 
-### `standard/`
+### `layered/`
 
 - a conventional layout that groups application code under `internal/` for better encapsulation in
   larger codebases. Use when you expect growth, need stricter package boundaries.
 
 # Personal preference
 
-- Personally I'm a big fan of flat layouts, and use standard only when the project is expected to grow significantly.
-- Flat uses the **group by dependency** pattern from [Ben Johnson’s article](https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1). Shout-out to the author for that.
+- Personally I'm a big fan of flat layouts, and use layered only when the project is expected to grow significantly.
+- Flat uses the **group by dependency** pattern from [Ben Johnson’s article](https://medium.com/@benbjohnson/layered-package-layout-7cdbc8391fc1). Shout-out to the author for that.
 
 # Getting started (choose layout)
 
@@ -46,23 +46,23 @@ git remote add origin <your-repo-url>
    environments or CI where templates are preinstalled in `/opt/svc-init`). Examples:
 
 - `svc-init flat` — shorthand for `svc-init -rest flat` **(default group is `rest`)**
-- `svc-init standard` — use `rest/standard`
+- `svc-init layered` — use `rest/layered`
 - `svc-init -grpc flat` — use `grpc/flat`
-- `svc-init -n -grpc standard` — use `grpc/standard` and do NOT update the local template clone
+- `svc-init -n -grpc layered` — use `grpc/layered` and do NOT update the local template clone
 
 # Usage
 
 ```bash
   svc-init flat
-  svc-init standard
-  svc-init -grpc standard
+  svc-init layered
+  svc-init -grpc layered
   svc-init -n -grpc flat
 ```
 
 ## Common Makefile targets
 
 Each layout ships a `Makefile` with a common set of developer shortcuts. Exact flags and behavior may vary
-slightly between `flat` and `standard` layouts — check the layout's `Makefile` for details — but the
+slightly between `flat` and `layered` layouts — check the layout's `Makefile` for details — but the
 following targets are present in most templates and are useful to know:
 
 - `make build` — compile the service binary for local development (usually a platform-native build). Some

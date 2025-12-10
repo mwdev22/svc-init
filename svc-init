@@ -10,14 +10,14 @@ TEMPLATE_TYPE=""
 
 usage() {
     cat <<-USAGE
-Usage: $(basename "$0") [-n|--noupdate] [-grpc|-rest] [flat|standard]
+Usage: $(basename "$0") [-n|--noupdate] [-grpc|-rest] [flat|layered]
 
 Options:
   -n, --noupdate    Do not update or pull the template repository (require templates already present in $TEMPLATE_DIR)
 
 Examples:
   $(basename "$0") -grpc flat            # use grpc/flat template (updates templates)
-  $(basename "$0") -n -rest standard     # use rest/standard template and do NOT update templates
+  $(basename "$0") -n -rest layered     # use rest/layered template and do NOT update templates
   $(basename "$0") flat                  # shorthand, assumes rest/flat
 USAGE
     exit 1
@@ -60,7 +60,7 @@ else
     esac
 fi
 
-if [[ "$TEMPLATE_TYPE" != "flat" && "$TEMPLATE_TYPE" != "standard" ]]; then
+if [[ "$TEMPLATE_TYPE" != "flat" && "$TEMPLATE_TYPE" != "layered" ]]; then
     usage
 fi
 
