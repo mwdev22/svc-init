@@ -32,12 +32,9 @@ func New(cfg *config.Config, opts ...func(*Api)) *Api {
 func (a *Api) Run() error {
 	mux := chi.NewMux()
 
-	mux.Handle("/swagger/", httpSwagger.WrapHandler)
-
-	fs := http.StripPrefix("/media/", http.FileServer(http.Dir("./media")))
-	mux.Handle("/media/*", fs)
-
 	a.Mount(mux)
+
+	mux.Handle("/swagger/", httpSwagger.WrapHandler)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:      []string{"*"},
